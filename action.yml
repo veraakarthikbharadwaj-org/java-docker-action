@@ -1,0 +1,6 @@
+# action.yml
+name: 'Java Maven Gradle Image'
+description: 'Docker image with Java, Maven, and Gradle on top of a root Ubuntu instance'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
