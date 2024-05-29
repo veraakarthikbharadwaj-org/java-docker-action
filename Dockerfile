@@ -7,13 +7,14 @@ RUN curl -L -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/gra
 RUN mkdir -p /opt/veracode/gradle && \
     unzip -d /opt/veracode/gradle /tmp/gradle-bin.zip
 
-FROM ubuntu:latest
+FROM amd64/ubuntu:latest
 
 # Install requirements
 # - Deps in Ubuntu registries
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     openjdk-21-jdk \
-    maven
+    maven \
+    zip
 
 # - Deps downloaded and installed independently
 COPY --from=download /opt/veracode /opt/veracode
